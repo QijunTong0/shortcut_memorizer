@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 interface Question {
   action: string;
@@ -21,7 +21,6 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
 
   useEffect(() => {
     // public/data 以下にアプリごとの JSON ファイルがあると仮定
-    // ファイル名は小文字に変換して読み込みます（例：vscode.json）
     fetch(`/data/${appName.toLowerCase()}.json`)
       .then((response) => response.json())
       .then((data) => {
@@ -34,13 +33,48 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       });
   }, [appName]);
 
+  // キーイベントからショートカット文字列を生成する関数
+  const getKeyCombination = useCallback((e: KeyboardEvent): string => {
+    // 各修飾キーの状態をチェックしつつ、メインのキーを組み合わせる
+    const keys: string[] = [];
+
+    // e.key では "Control", "Shift" なども返るため、メインのキーであるかを判断します。
+    if (e.ctrlKey && e.key !== 'Control') keys.push('Ctrl');
+    if (e.shiftKey && e.key !== 'Shift') keys.push('Shift');
+    if (e.altKey && e.key !== 'Alt') keys.push('Alt');
+    if (e.metaKey && e.key !== 'Meta') keys.push('Meta');
+    // 修飾キー自体はここでは加えず、通常のキーのみ追加
+    if (!['Control', 'Shift', 'Alt', 'Meta'].includes(e.key)) {
+      // アルファベットの場合は大文字に統一
+      const key = e.key.length === 1 ? e.key.toUpperCase() : e.key;
+      keys.push(key);
+    }
+    return keys.join('+');
+  }, []);
+
+  // キー入力を拾う処理（quizStarted が true の場合のみ有効）
   useEffect(() => {
-    // 入力が変わるたびに正解かチェック
+    if (!quizStarted) return;
+
+    const handleKeydown = (e: KeyboardEvent) => {
+      e.preventDefault(); // ブラウザのショートカットなどの干渉を防ぐ
+      const combination = getKeyCombination(e);
+      setCurrentInput(combination);
+    };
+
+    window.addEventListener('keydown', handleKeydown);
+    return () => {
+      window.removeEventListener('keydown', handleKeydown);
+    };
+  }, [quizStarted, getKeyCombination]);
+
+  // 入力が変わるたびに正解かチェック
+  useEffect(() => {
     if (quizStarted && questions.length > 0 && currentIndex < questions.length) {
       const currentQuestion = questions[currentIndex];
       if (currentInput === currentQuestion.shortcut) {
         setMessage('正解！');
-        // 少し待ってから次の問題へ
+        // 少し待ってから次の問題へ移行
         setTimeout(() => {
           setCurrentInput('');
           setMessage('');
@@ -94,15 +128,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       ) : (
         <div>
           <h2>操作内容: {questions[currentIndex].action}</h2>
-          <div>
-            <input
-              type="text"
-              value={currentInput}
-              onChange={(e) => setCurrentInput(e.target.value)}
-              placeholder="ショートカットを入力..."
-              autoFocus
-            />
-          </div>
+          {/* 入力欄は削除するか、情報表示用に変更 */}
           <div>入力中: {currentInput}</div>
           <div>
             <button onClick={handleGiveUp}>give up</button>
