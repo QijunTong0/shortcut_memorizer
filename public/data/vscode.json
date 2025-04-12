@@ -1,0 +1,14 @@
+[
+    {
+        "action": "新しいファイルを作成",
+        "shortcut": "Ctrl+N"
+    },
+    {
+        "action": "ファイルを保存",
+        "shortcut": "Ctrl+S"
+    },
+    {
+        "action": "元に戻す",
+        "shortcut": "Ctrl+Z"
+    }
+]
