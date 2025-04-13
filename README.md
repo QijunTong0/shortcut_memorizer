@@ -1,54 +1,21 @@
-# React + TypeScript + Vite
+# Shortcut Practice Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このリポジトリは、React と TypeScript を利用して Vite で構築したキーボードショートカット練習用 Web アプリケーションです。  
+各アプリ（VSCode、Excel、PowerPoint、ChatGPT、Linux Terminal、Ubuntu Terminal、Mac Terminal など）のショートカットを、アイコン形式でアプリを選択し、実際のキー入力をもとに練習できるインターフェースで提供します。
 
-Currently, two official plugins are available:
+## 特徴
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **多彩なアプリケーション対応**  
+  VSCode、Excel、PowerPoint、ChatGPT、Linux、Ubuntu、Mac の各ショートカットを学習可能。
 
-## Expanding the ESLint configuration
+- **リアルタイムキー入力解析**  
+  実際にユーザーがキーボード入力したキーをキャプチャし、正解判定を行います。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **見やすい UI デザイン**  
+  カスタム CSS により、キー入力はキーボタン風の表示に装飾、また「正解」メッセージは緑色で強調表示しています。
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **GitHub Pages へのデプロイ対応**  
+  gh-pages パッケージを利用して、簡単に静的サイトとしてデプロイ可能。
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ディレクトリ構成
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
