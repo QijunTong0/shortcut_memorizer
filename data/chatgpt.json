@@ -1,0 +1,26 @@
+[
+    {
+        "action": "メッセージ送信",
+        "shortcut": "Enter"
+    },
+    {
+        "action": "改行",
+        "shortcut": "Shift+Enter"
+    },
+    {
+        "action": "新規チャット",
+        "shortcut": "Ctrl+N"
+    },
+    {
+        "action": "サイドバー表示切替",
+        "shortcut": "Ctrl+\\"
+    },
+    {
+        "action": "ダークモード切替",
+        "shortcut": "Ctrl+Shift+D"
+    },
+    {
+        "action": "会話クリア",
+        "shortcut": "Ctrl+K"
+    }
+]

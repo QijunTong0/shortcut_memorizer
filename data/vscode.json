@@ -1,0 +1,42 @@
+[
+    {
+        "action": "ファイルを開く",
+        "shortcut": "Ctrl+O"
+    },
+    {
+        "action": "ファイルを保存",
+        "shortcut": "Ctrl+S"
+    },
+    {
+        "action": "元に戻す",
+        "shortcut": "Ctrl+Z"
+    },
+    {
+        "action": "やり直す",
+        "shortcut": "Ctrl+Y"
+    },
+    {
+        "action": "コマンドパレットを開く",
+        "shortcut": "Ctrl+Shift+P"
+    },
+    {
+        "action": "全体検索",
+        "shortcut": "Ctrl+Shift+F"
+    },
+    {
+        "action": "サイドバー表示切替",
+        "shortcut": "Ctrl+B"
+    },
+    {
+        "action": "全画面表示切替",
+        "shortcut": "F11"
+    },
+    {
+        "action": "定義へ移動",
+        "shortcut": "F12"
+    },
+    {
+        "action": "ドキュメント整形",
+        "shortcut": "Shift+Alt+F"
+    }
+]

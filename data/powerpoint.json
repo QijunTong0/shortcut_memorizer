@@ -1,0 +1,38 @@
+[
+    {
+        "action": "新しいスライド",
+        "shortcut": "Ctrl+M"
+    },
+    {
+        "action": "プレゼンテーション開始",
+        "shortcut": "F5"
+    },
+    {
+        "action": "プレゼンテーション終了",
+        "shortcut": "Esc"
+    },
+    {
+        "action": "保存",
+        "shortcut": "Ctrl+S"
+    },
+    {
+        "action": "コピー",
+        "shortcut": "Ctrl+C"
+    },
+    {
+        "action": "貼り付け",
+        "shortcut": "Ctrl+V"
+    },
+    {
+        "action": "スライドの複製",
+        "shortcut": "Ctrl+D"
+    },
+    {
+        "action": "元に戻す",
+        "shortcut": "Ctrl+Z"
+    },
+    {
+        "action": "やり直す",
+        "shortcut": "Ctrl+Y"
+    }
+]

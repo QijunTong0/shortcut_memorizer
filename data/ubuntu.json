@@ -1,0 +1,42 @@
+[
+  {
+    "action": "新しいウィンドウを開く",
+    "shortcut": "Cmd+N"
+  },
+  {
+    "action": "新しいタブを開く",
+    "shortcut": "Cmd+T"
+  },
+  {
+    "action": "タブを閉じる",
+    "shortcut": "Cmd+W"
+  },
+  {
+    "action": "最近閉じたタブを再オープン",
+    "shortcut": "Shift+Cmd+T"
+  },
+  {
+    "action": "コピー",
+    "shortcut": "Cmd+C"
+  },
+  {
+    "action": "貼り付け",
+    "shortcut": "Cmd+V"
+  },
+  {
+    "action": "画面をクリア",
+    "shortcut": "Cmd+K"
+  },
+  {
+    "action": "全画面表示",
+    "shortcut": "Ctrl+Cmd+F"
+  },
+  {
+    "action": "次のタブに移動",
+    "shortcut": "Shift+Cmd+]"
+  },
+  {
+    "action": "前のタブに移動",
+    "shortcut": "Shift+Cmd+["
+  }
+]
