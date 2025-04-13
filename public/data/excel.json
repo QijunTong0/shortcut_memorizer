@@ -1,0 +1,54 @@
+[
+    {
+        "action": "新しいブック",
+        "shortcut": "Ctrl+N"
+    },
+    {
+        "action": "ブックを開く",
+        "shortcut": "Ctrl+O"
+    },
+    {
+        "action": "保存",
+        "shortcut": "Ctrl+S"
+    },
+    {
+        "action": "印刷",
+        "shortcut": "Ctrl+P"
+    },
+    {
+        "action": "元に戻す",
+        "shortcut": "Ctrl+Z"
+    },
+    {
+        "action": "やり直す",
+        "shortcut": "Ctrl+Y"
+    },
+    {
+        "action": "コピー",
+        "shortcut": "Ctrl+C"
+    },
+    {
+        "action": "貼り付け",
+        "shortcut": "Ctrl+V"
+    },
+    {
+        "action": "切り取り",
+        "shortcut": "Ctrl+X"
+    },
+    {
+        "action": "オートサム",
+        "shortcut": "Alt+="
+    },
+    {
+        "action": "新しいシートの挿入",
+        "shortcut": "Shift+F11"
+    },
+    {
+        "action": "検索",
+        "shortcut": "Ctrl+F"
+    },
+    {
+        "action": "置換",
+        "shortcut": "Ctrl+H"
+    }
+]
