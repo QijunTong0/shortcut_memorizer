@@ -20,7 +20,6 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    // public/data 以下にアプリごとの JSON ファイルがあると仮定
     fetch(`/data/${appName.toLowerCase()}.json`)
       .then((response) => response.json())
       .then((data) => {
@@ -33,31 +32,24 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       });
   }, [appName]);
 
-  // キーイベントからショートカット文字列を生成する関数
   const getKeyCombination = useCallback((e: KeyboardEvent): string => {
-    // 各修飾キーの状態をチェックしつつ、メインのキーを組み合わせる
     const keys: string[] = [];
-
-    // e.key では "Control", "Shift" なども返るため、メインのキーであるかを判断します。
     if (e.ctrlKey && e.key !== 'Control') keys.push('Ctrl');
     if (e.shiftKey && e.key !== 'Shift') keys.push('Shift');
     if (e.altKey && e.key !== 'Alt') keys.push('Alt');
     if (e.metaKey && e.key !== 'Meta') keys.push('Meta');
-    // 修飾キー自体はここでは加えず、通常のキーのみ追加
     if (!['Control', 'Shift', 'Alt', 'Meta'].includes(e.key)) {
-      // アルファベットの場合は大文字に統一
       const key = e.key.length === 1 ? e.key.toUpperCase() : e.key;
       keys.push(key);
     }
     return keys.join('+');
   }, []);
 
-  // キー入力を拾う処理（quizStarted が true の場合のみ有効）
   useEffect(() => {
     if (!quizStarted) return;
 
     const handleKeydown = (e: KeyboardEvent) => {
-      e.preventDefault(); // ブラウザのショートカットなどの干渉を防ぐ
+      e.preventDefault();
       const combination = getKeyCombination(e);
       setCurrentInput(combination);
     };
@@ -68,13 +60,11 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
     };
   }, [quizStarted, getKeyCombination]);
 
-  // 入力が変わるたびに正解かチェック
   useEffect(() => {
     if (quizStarted && questions.length > 0 && currentIndex < questions.length) {
       const currentQuestion = questions[currentIndex];
       if (currentInput === currentQuestion.shortcut) {
         setMessage('正解！');
-        // 少し待ってから次の問題へ移行
         setTimeout(() => {
           setCurrentInput('');
           setMessage('');
@@ -89,7 +79,6 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
     return <div>Loading...</div>;
   }
 
-  // 全問終了時の処理
   if (quizStarted && currentIndex >= questions.length) {
     return (
       <div>
@@ -128,18 +117,16 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       ) : (
         <div>
           <h2>操作内容: {questions[currentIndex].action}</h2>
-          {/* 入力欄は削除するか、情報表示用に変更 */}
-          <div>入力中: {currentInput}</div>
-          <div>
-            <button onClick={handleGiveUp}>give up</button>
-          </div>
+          <div className="info">入力中: {currentInput}</div>
+          <button onClick={handleGiveUp}>正解を表示</button>
           {answerShown && (
-            <div>
+            <div className="info">
               正解は: {questions[currentIndex].shortcut}
+              <br />
               <button onClick={handleNextAfterGiveUp}>次へ</button>
             </div>
           )}
-          {message && <div>{message}</div>}
+          {message && <div className="info correct-message">{message}</div>}
         </div>
       )}
     </div>

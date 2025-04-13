@@ -1,3 +1,4 @@
+// src/App.tsx
 import React, { useState } from 'react';
 import AppSelection from './components/AppSelection';
 import PracticeMode from './components/PracticeMode';
@@ -17,7 +18,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       {mode === 'selection' && <AppSelection onSelectApp={handleSelectApp} />}
       {mode === 'practice' && selectedApp && (
         <PracticeMode appName={selectedApp} onExit={handleBackToSelection} />

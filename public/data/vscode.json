@@ -1,19 +1,11 @@
 [
     {
-        "action": "新しいファイルを作成",
-        "shortcut": "Ctrl+N"
-    },
-    {
         "action": "ファイルを開く",
         "shortcut": "Ctrl+O"
     },
     {
         "action": "ファイルを保存",
         "shortcut": "Ctrl+S"
-    },
-    {
-        "action": "ファイルを閉じる",
-        "shortcut": "Ctrl+W"
     },
     {
         "action": "元に戻す",
