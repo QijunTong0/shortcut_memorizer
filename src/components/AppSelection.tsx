@@ -13,11 +13,11 @@ interface AppSelectionProps {
 
 // 各アプリの名称と対応するアイコン画像のパス
 const availableApps: AppIcon[] = [
-    { name: 'VSCode', icon: '/data/icons/vscode.png' },
-    { name: 'Excel', icon: '/data/icons/excel.png' },
-    { name: 'PowerPoint', icon: '/data/icons/powerpoint.png' },
-    { name: 'ChatGPT', icon: '/data/icons/chatgpt.png' },
-    { name: 'UbuntuTerminal', icon: '/data/icons/ubuntuterminal.png' },
+    { name: 'VSCode', icon: '/data/vscode.png' },
+    { name: 'Excel', icon: '/data/excel.png' },
+    { name: 'PowerPoint', icon: '/data/powerpoint.png' },
+    { name: 'ChatGPT', icon: '/data/chatgpt.png' },
+    { name: 'UbuntuTerminal', icon: '/data/ubuntu.png' },
 ];
 
 const AppSelection: React.FC<AppSelectionProps> = ({ onSelectApp }) => {

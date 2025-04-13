@@ -135,7 +135,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       </div>
       {quizStarted && (
         <div>
-          <h2>操作内容: {questions[currentIndex].action}</h2>
+          <h2>{questions[currentIndex].action}</h2>
           <div className="info">入力中: {renderKeyCombination(currentInput)}</div>
           {answerShown && (
             <div className="info">
