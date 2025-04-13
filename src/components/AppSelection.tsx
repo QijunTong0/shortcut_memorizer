@@ -1,26 +1,41 @@
 // src/components/AppSelection.tsx
-import React, { useState } from 'react';
+import React from 'react';
+import './AppSelection.css';
+
+interface AppIcon {
+    name: string;
+    icon: string; // 画像ファイルのパス（例："/icons/vscode.png"）
+}
 
 interface AppSelectionProps {
     onSelectApp: (appName: string) => void;
 }
 
-const availableApps = ['VSCode', 'Excel', 'PowerPoint', 'ChatGPT', 'UbuntuTerminal', 'MacTerminal'];
+// 各アプリの名称と対応するアイコン画像のパス
+const availableApps: AppIcon[] = [
+    { name: 'VSCode', icon: '/data/vscode.png' },
+    { name: 'Excel', icon: '/data/excel.png' },
+    { name: 'PowerPoint', icon: '/data/powerpoint.png' },
+    { name: 'ChatGPT', icon: '/data/chatgpt.png' },
+    { name: 'UbuntuTerminal', icon: '/data/ubuntu.png' },
+];
 
 const AppSelection: React.FC<AppSelectionProps> = ({ onSelectApp }) => {
-    const [selected, setSelected] = useState<string>(availableApps[0]);
-
     return (
         <div>
             <h1>アプリ選択</h1>
-            <select value={selected} onChange={(e) => setSelected(e.target.value)}>
+            <div className="app-grid">
                 {availableApps.map((app) => (
-                    <option key={app} value={app}>
-                        {app}
-                    </option>
+                    <div
+                        key={app.name}
+                        className="app-icon"
+                        onClick={() => onSelectApp(app.name)}
+                    >
+                        <img src={app.icon} alt={app.name} />
+                        <p>{app.name}</p>
+                    </div>
                 ))}
-            </select>
-            <button onClick={() => onSelectApp(selected)}>練習開始</button>
+            </div>
         </div>
     );
 };

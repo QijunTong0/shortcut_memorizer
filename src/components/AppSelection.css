@@ -1,0 +1,38 @@
+/* src/components/AppSelection.css */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 1rem;
+    justify-items: center;
+}
+
+.app-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.app-icon:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.app-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.app-icon p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
