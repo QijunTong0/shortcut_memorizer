@@ -77,3 +77,112 @@ input[type="text"] {
   font-weight: bold;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
+
+/* 既存スタイルの例（抜粋） */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #444;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+select,
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 0.5rem 0 1rem;
+  box-sizing: border-box;
+}
+
+.info {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+/* 正解メッセージを緑色に装飾 */
+.correct-message {
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+/* キー表示用スタイル（先の回答を参照） */
+.key-display {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.key {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  font-family: monospace;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ボタン配置用：左右に分けたレイアウト */
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.left-button,
+.right-button {
+  display: flex;
+  align-items: center;
+}
+
+/* 終了ボタン用のスタイル（誤操作防止用に目立つ色） */
+.exit-button {
+  background-color: #dc3545;
+  /* 赤系 */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exit-button:hover {
+  background-color: #b02a37;
+}

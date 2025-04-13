@@ -1,4 +1,3 @@
-// src/components/PracticeMode.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 import KeyDisplay from './KeyDisplay';
 
@@ -34,6 +33,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       });
   }, [appName]);
 
+  // ユーザーのキー入力から「Ctrl+S」などの文字列を生成
   const getKeyCombination = useCallback((e: KeyboardEvent): string => {
     const keys: string[] = [];
     if (e.ctrlKey && e.key !== 'Control') keys.push('Ctrl');
@@ -49,7 +49,6 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
 
   useEffect(() => {
     if (!quizStarted) return;
-
     const handleKeydown = (e: KeyboardEvent) => {
       e.preventDefault();
       const combination = getKeyCombination(e);
@@ -85,7 +84,9 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
     return (
       <div>
         <h2>お疲れ様でした！全ての問題を終了しました。</h2>
-        <button onClick={onExit}>戻る</button>
+        <button className="exit-button" onClick={onExit}>
+          終了
+        </button>
       </div>
     );
   }
@@ -108,7 +109,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
     setCurrentIndex((prev) => prev + 1);
   };
 
-  // ユーザーの入力文字列（例："Ctrl+S"）を分割して KeyDisplay に渡す
+  // ユーザー入力のキー文字列（例："Ctrl+S"）を分割して表示用コンポーネントへ
   const renderKeyCombination = (combination: string) => {
     const keysArray = combination.split('+');
     return <KeyDisplay keys={keysArray} />;
@@ -117,16 +118,25 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
   return (
     <div>
       <h1>{appName} ショートカット練習</h1>
-      <button onClick={onExit}>中断</button>
-      {!quizStarted ? (
-        <div>
-          <button onClick={startQuiz}>start</button>
+      {/* ボタン群を左右に配置するレイアウト */}
+      <div className="button-row">
+        <div className="left-button">
+          {!quizStarted ? (
+            <button onClick={startQuiz}>start</button>
+          ) : (
+            <button onClick={handleGiveUp}>正解を表示</button>
+          )}
         </div>
-      ) : (
+        <div className="right-button">
+          <button className="exit-button" onClick={onExit}>
+            終了
+          </button>
+        </div>
+      </div>
+      {quizStarted && (
         <div>
           <h2>操作内容: {questions[currentIndex].action}</h2>
           <div className="info">入力中: {renderKeyCombination(currentInput)}</div>
-          <button onClick={handleGiveUp}>正解を表示</button>
           {answerShown && (
             <div className="info">
               正解は: {renderKeyCombination(questions[currentIndex].shortcut)}

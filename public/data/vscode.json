@@ -28,10 +28,6 @@
         "shortcut": "Ctrl+B"
     },
     {
-        "action": "ターミナル表示",
-        "shortcut": "Ctrl+`"
-    },
-    {
         "action": "全画面表示切替",
         "shortcut": "F11"
     },
