@@ -1,4 +1,3 @@
-// src/components/PracticeMode.tsx
 import React, { useEffect, useState, useCallback } from 'react';
 
 interface Question {
@@ -119,7 +118,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
         <div>
           <h2>操作内容: {questions[currentIndex].action}</h2>
           <div className="info">入力中: {currentInput}</div>
-          <button onClick={handleGiveUp}>give up</button>
+          <button onClick={handleGiveUp}>正解を表示</button>
           {answerShown && (
             <div className="info">
               正解は: {questions[currentIndex].shortcut}
@@ -127,7 +126,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
               <button onClick={handleNextAfterGiveUp}>次へ</button>
             </div>
           )}
-          {message && <div className="info">{message}</div>}
+          {message && <div className="info correct-message">{message}</div>}
         </div>
       )}
     </div>

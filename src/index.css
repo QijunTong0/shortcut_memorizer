@@ -52,3 +52,10 @@ input[type="text"] {
   margin: 1rem 0;
   text-align: center;
 }
+
+.correct-message {
+  color: #28a745;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
