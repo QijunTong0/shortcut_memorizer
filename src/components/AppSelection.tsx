@@ -1,10 +1,11 @@
+// src/components/AppSelection.tsx
 import React, { useState } from 'react';
 
 interface AppSelectionProps {
     onSelectApp: (appName: string) => void;
 }
 
-const availableApps = ['VSCode', 'Excel', 'Photoshop'];
+const availableApps = ['VSCode', 'Excel', 'PowerPoint', 'ChatGPT', 'UbuntuTerminal', 'MacTerminal'];
 
 const AppSelection: React.FC<AppSelectionProps> = ({ onSelectApp }) => {
     const [selected, setSelected] = useState<string>(availableApps[0]);
