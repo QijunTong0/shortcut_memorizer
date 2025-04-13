@@ -1,4 +1,6 @@
+// src/components/PracticeMode.tsx
 import React, { useEffect, useState, useCallback } from 'react';
+import KeyDisplay from './KeyDisplay';
 
 interface Question {
   action: string;
@@ -106,6 +108,12 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
     setCurrentIndex((prev) => prev + 1);
   };
 
+  // ユーザーの入力文字列（例："Ctrl+S"）を分割して KeyDisplay に渡す
+  const renderKeyCombination = (combination: string) => {
+    const keysArray = combination.split('+');
+    return <KeyDisplay keys={keysArray} />;
+  };
+
   return (
     <div>
       <h1>{appName} ショートカット練習</h1>
@@ -117,11 +125,11 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
       ) : (
         <div>
           <h2>操作内容: {questions[currentIndex].action}</h2>
-          <div className="info">入力中: {currentInput}</div>
+          <div className="info">入力中: {renderKeyCombination(currentInput)}</div>
           <button onClick={handleGiveUp}>正解を表示</button>
           {answerShown && (
             <div className="info">
-              正解は: {questions[currentIndex].shortcut}
+              正解は: {renderKeyCombination(questions[currentIndex].shortcut)}
               <br />
               <button onClick={handleNextAfterGiveUp}>次へ</button>
             </div>
