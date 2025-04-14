@@ -21,7 +21,7 @@ const PracticeMode: React.FC<PracticeModeProps> = ({ appName, onExit }) => {
   const [message, setMessage] = useState<string>('');
 
   useEffect(() => {
-    fetch(`./data/${appName.toLowerCase()}.json`)
+    fetch(`data/${appName.toLowerCase()}.json`)
       .then((response) => response.json())
       .then((data) => {
         setQuestions(data);
