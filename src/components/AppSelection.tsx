@@ -23,7 +23,7 @@ const availableApps: AppIcon[] = [
 const AppSelection: React.FC<AppSelectionProps> = ({ onSelectApp }) => {
     return (
         <div>
-            <h1>アプリ選択</h1>
+            <h1>What App do you want to practice?</h1>
             <div className="app-grid">
                 {availableApps.map((app) => (
                     <div
